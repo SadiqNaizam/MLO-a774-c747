@@ -61,13 +61,18 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        success: '#51AC55', // PRD: designSystem.colorPalette.success
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+        // --radius in CSS is 0.375rem (6px), matching PRD default "rounded-md"
+				lg: 'calc(var(--radius) + 2px)', // 0.375rem (6px) + 2px = 8px (0.5rem)
+				md: 'var(--radius)', // 0.375rem (6px)
+				sm: 'calc(var(--radius) - 2px)'  // 0.375rem (6px) - 2px = 4px (0.25rem, matches PRD buttons: "rounded")
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)'], // Uses the full font stack from --font-sans CSS variable
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
